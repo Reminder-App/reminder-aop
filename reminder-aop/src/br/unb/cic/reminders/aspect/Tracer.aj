@@ -8,9 +8,7 @@ import android.util.Log;
 
 aspect Tracer {
 
-	pointcut traceMethods() : (execution(*
-			  *br.unb.cic.reminders.controller.Controller.*(..)) &&
-			  !cflow(within(Tracer)));
+	pointcut traceMethods() : (execution(* *(..))&& !cflow(within(Tracer)));
 	
 	before(): traceMethods(){
 		
